@@ -11,6 +11,8 @@ const nextConfig = {
     // your project has TypeScript errors.
     ignoreBuildErrors: true,
   },
+  // Disable SWC minifier due to environment limitations
+  swcMinify: false,
   webpack: (config) => {
     config.resolve.fallback = {
       ...config.resolve.fallback,

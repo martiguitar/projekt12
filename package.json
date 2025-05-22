@@ -26,6 +26,7 @@
     "@mui/material": "^5.14.20",
     "@mui/system": "^5.14.20",
     "@mui/x-date-pickers": "^6.18.2",
+    "@supabase/supabase-js": "^2.39.0",
     "axios": "^1.6.2",
     "bcryptjs": "^2.4.3",
     "crypto-browserify": "^3.12.0",

@@ -59,33 +59,6 @@ export default function Layout({ children }) {
     }
   };
 
-  const drawer = (
-    <List>
-      {navigationItems.map((item) => (
-        <ListItem
-          button
-          key={item.text}
-          onClick={() => handleNavigation(item.path)}
-          selected={router.pathname === item.path}
-          sx={{
-            '&.Mui-selected': {
-              backgroundColor: 'primary.main',
-              color: 'primary.contrastText',
-              '& .MuiListItemIcon-root': {
-                color: 'primary.contrastText',
-              },
-            },
-          }}
-        >
-          <ListItemIcon sx={{ color: 'text.primary' }}>
-            {item.icon}
-          </ListItemIcon>
-          <ListItemText primary={item.text} />
-        </ListItem>
-      ))}
-    </List>
-  );
-
   return (
     <Box sx={{ 
       display: 'flex', 
@@ -95,8 +68,8 @@ export default function Layout({ children }) {
       width: '100%',
       position: 'relative'
     }}>
-      {/* Mobile Navigation */}
-      <MobileNavigation />
+      {/* Only show MobileNavigation on mobile devices */}
+      {isMobile && <MobileNavigation />}
       
       <AppBar 
         position="fixed" 
@@ -116,50 +89,50 @@ export default function Layout({ children }) {
             gap: 2,
             p: { xs: 0, sm: 2 }
           }}>
-          <MusicNoteIcon sx={{ color: '#ffa726' }} />
-          <Typography 
-            variant="h6" 
-            sx={{ 
-              color: 'text.primary',
-              display: { xs: 'none', sm: 'block' }
-            }}
-          >
-            Studio Booking
-          </Typography>
+            <MusicNoteIcon sx={{ color: '#ffa726' }} />
+            <Typography 
+              variant="h6" 
+              sx={{ 
+                color: 'text.primary',
+                display: { xs: 'none', sm: 'block' }
+              }}
+            >
+              Studio Booking
+            </Typography>
           
-          <Box sx={{ display: 'flex', gap: 1, alignItems: 'center', ml: { xs: 0, sm: 4 } }}>
-            {navigationItems.map((item) => (
-              <Button
-                key={item.text}
-                onClick={() => handleNavigation(item.path)}
-                startIcon={item.icon}
-                sx={{
-                  color: router.pathname === item.path ? 'primary.main' : 'text.primary',
-                  borderBottom: router.pathname === item.path ? 2 : 0,
-                  borderColor: 'primary.main',
-                  borderRadius: 0,
-                  px: 2,
-                  '&:hover': {
-                    bgcolor: 'transparent',
-                    color: 'primary.main',
-                  },
-                }}
-              >
-                {item.text}
-              </Button>
-            ))}
-          </Box>
+            <Box sx={{ display: 'flex', gap: 1, alignItems: 'center', ml: { xs: 0, sm: 4 } }}>
+              {navigationItems.map((item) => (
+                <Button
+                  key={item.text}
+                  onClick={() => handleNavigation(item.path)}
+                  startIcon={item.icon}
+                  sx={{
+                    color: router.pathname === item.path ? 'primary.main' : 'text.primary',
+                    borderBottom: router.pathname === item.path ? 2 : 0,
+                    borderColor: 'primary.main',
+                    borderRadius: 0,
+                    px: 2,
+                    '&:hover': {
+                      bgcolor: 'transparent',
+                      color: 'primary.main',
+                    },
+                  }}
+                >
+                  {item.text}
+                </Button>
+              ))}
+            </Box>
 
-          <Box sx={{ flexGrow: 1 }} />
+            <Box sx={{ flexGrow: 1 }} />
           
-          <IconButton
-            onClick={handleLogout}
-            sx={{ color: 'text.primary' }}
-            size="small"
-          >
-            <LogoutIcon />
-          </IconButton>
-        </Toolbar>
+            <IconButton
+              onClick={handleLogout}
+              sx={{ color: 'text.primary' }}
+              size="small"
+            >
+              <LogoutIcon />
+            </IconButton>
+          </Toolbar>
         </Box>
       </AppBar>
 

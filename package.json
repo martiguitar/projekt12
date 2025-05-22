@@ -16,7 +16,7 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@fullcalendar/core": "^6.1.15",
+    "@fullcalendar/core": "^6.1.8",
     "@fullcalendar/daygrid": "^6.1.8",
     "@fullcalendar/interaction": "^6.1.8",
     "@fullcalendar/react": "^6.1.8",
@@ -37,15 +37,14 @@
     "util": "^0.12.5"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "latest",
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "autoprefixer": "latest",
     "eslint": "latest",
     "eslint-config-next": "latest",
-    "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.1",
+    "postcss": "latest",
+    "tailwindcss": "latest",
     "typescript": "~5.7.0"
   },
   "license": "MIT"
